@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maheshwari | Personal Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,600,800&display=swap">
+  <style>
+    :root {
+      --primary: #f44336;
+      --secondary: #1f4037;
+      --bg: #181818;
+      --text: #fff;
+      --accent: #99f2c8;
+      --gradient: linear-gradient(-45deg, #ff416c, #ff4b2b, #1f4037, #99f2c8);
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      scroll-behavior: smooth;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(24,24,24,0.92);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px 18px 32px;
+      box-shadow: 0 2px 16px #0004;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: var(--primary);
+    }
+    nav {
+      display: flex;
+      gap: 32px;
+    }
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.08rem;
+      position: relative;
+      transition: color 0.2s;
+    }
+    nav a::after {
+      content: '';
+      display: block;
+      height: 2.5px;
+      width: 0;
+      background: var(--primary);
+      border-radius: 2px;
+      position: absolute;
+      left: 0; bottom: -4px;
+      transition: width 0.3s;
+    }
+    nav a:hover, nav a.active {
+      color: var(--primary);
+    }
+    nav a:hover::after, nav a.active::after {
+      width: 100%;
+    }
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    section {
+      min-height: 85vh;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 60px 0 40px 0;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.6s cubic-bezier(.56,-0.01,.41,1.03);
+    }
+    section.active {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+      z-index: 1;
+    }
+    /* Home Section */
+    #home {
+      background: var(--gradient);
+      background-size: 400% 400%;
+      border-radius: 32px;
+      box-shadow: 0 6px 32px #ff416c22, 0 2px 10px #0007;
+      color: #fff;
+      margin-top: 32px;
+      animation: gradientBG 12s ease-in-out infinite;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      min-height: 82vh;
+      display: flex;
+      opacity: 1;
+      transform: none;
+    }
+    @keyframes gradientBG {
+      0% {background-position: 0% 60%;}
+      50% {background-position: 100% 40%;}
+      100% {background-position: 0% 60%;}
+    }
+    .avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+      border: 3.5px solid var(--accent);
+      margin-bottom: 20px;
+      box-shadow: 0 2px 12px #0006;
+      background: #fff;
+      display: inline-block;
+    }
+    .hero-title {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin: 0 0 12px 0;
+      letter-spacing: 0.08em;
+      line-height: 1.15;
+      text-shadow: 0 2px 16px #0004;
+    }
+    .hero-role {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: #e8e8e8;
+      margin-bottom: 20px;
+      letter-spacing: 0.02em;
+    }
+    .hero-desc {
+      max-width: 540px;
+      font-size: 1.18rem;
+      color: #fafafad0;
+      margin: 0 auto 36px auto;
+      line-height: 1.7;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 18px;
+    }
+    .primary-btn, .outline-btn {
+      font-size: 1.08rem;
+      font-weight: 600;
+      padding: 11px 36px;
+      border-radius: 24px;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      transition: all 0.22s;
+      box-shadow: 0 2px 12px #0003;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .primary-btn {
+      background: var(--primary);
+      color: #fff;
+      border: 2px solid var(--primary);
+    }
+    .primary-btn:hover {
+      background: #fff;
+      color: var(--primary);
+    }
+    .outline-btn {
+      background: transparent;
+      color: #fff;
+      border: 2px solid #fff;
+    }
+    .outline-btn:hover {
+      background: #fff;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    /* Section Titles */
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 24px;
+      letter-spacing: 0.05em;
+    }
+    /* About Section */
+    #about-content {
+      max-width: 700px;
+      padding: 36px 32px;
+      background: #232323;
+      border-radius: 18px;
+      box-shadow: 0 2px 18px #0003;
+    }
+    #about-content p {
+      font-size: 1.1rem;
+      color: #ddd;
+      line-height: 1.7;
+      margin-bottom: 1.2em;
+    }
+    /* Skills */
+    #skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px 24px;
+      justify-content: center;
+      max-width: 700px;
+      margin: 36px auto 0 auto;
+    }
+    .skill-item {
+      background: var(--secondary);
+      color: #fff;
+      border-radius: 12px;
+      padding: 16px 28px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      box-shadow: 0 2px 10px #0003;
+      letter-spacing: 0.01em;
+      border-left: 4px solid var(--primary);
+      transition: transform 0.2s;
+    }
+    .skill-item:hover {
+      transform: translateY(-5px) scale(1.07);
+      background: linear-gradient(90deg, var(--secondary), var(--primary));
+      color: #fff;
+    }
+    /* Portfolio */
+    #project-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
+      margin-top: 30px;
+      width: 100%;
+      max-width: 950px;
+    }
+    .project-card {
+      background: #232323;
+      border-radius: 14px;
+      box-shadow: 0 2px 12px #0003;
+      max-width: 320px;
+      min-width: 260px;
+      flex: 1 1 260px;
+      padding: 28px 24px 20px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: transform 0.21s;
+      border-top: 4px solid var(--primary);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 16px;
+      cursor: pointer;
+    }
+    .project-card:hover {
+      transform: translateY(-7px) scale(1.03);
+      background: linear-gradient(120deg, #232323, #2c2c2c 90%);
+      box-shadow: 0 6px 28px var(--primary)33, 0 2px 14px #0006;
+    }
+    .project-title {
+      font-size: 1.19rem;
+      font-weight: 700;
+      margin: 0 0 12px 0;
+      color: var(--primary);
+      letter-spacing: 0.03em;
+    }
+    .project-desc {
+      font-size: 1.05rem;
+      color: #efefef;
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+    /* Modal */
+    .modal-bg {
+      position: fixed;
+      top:0; left:0; width:100vw; height:100vh;
+      background:#0008;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:200;
+    }
+    .modal-content {
+      background: #232323;
+      border-radius: 18px;
+      padding: 32px 26px;
+      min-width: 260px;
+      max-width: 90vw;
+      box-shadow: 0 2px 22px #0006;
+      position: relative;
+      animation: fadeInPop 0.35s;
+    }
+    @keyframes fadeInPop {
+      from { opacity:0; transform:scale(0.8);}
+      to { opacity:1; transform:scale(1);}
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px; right: 18px;
+      font-size: 2rem;
+      color: var(--primary);
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .modal-links {
+      margin-top: 18px;
+      display: flex;
+      gap: 14px;
+    }
+    .primary-btn, .outline-btn {
+      font-size: 1.08rem;
+      font-weight: 600;
+      padding: 11px 36px;
+      border-radius: 24px;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      transition: all 0.22s;
+      box-shadow: 0 2px 12px #0003;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .primary-btn {
+      background: var(--primary);
+      color: #fff;
+      border: 2px solid var(--primary);
+    }
+    .primary-btn:hover {
+      background: #fff;
+      color: var(--primary);
+    }
+    .outline-btn {
+      background: transparent;
+      color: #fff;
+      border: 2px solid #fff;
+    }
+    .outline-btn:hover {
+      background: #fff;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    @media (max-width: 900px) {
+      header {
+        padding: 14px 14px 14px 16px;
+      }
+      section { padding-top: 32px; }
+      .logo { font-size: 1.25rem; }
+      .hero-title { font-size: 2.1rem; }
+      #home { min-height: 70vh; border-radius: 18px; }
+      #project-list { flex-direction: column; align-items: center; }
+    }
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 11px 0;
+      }
+      nav { gap: 16px; }
+      main { padding: 0 6px; }
+      #about-content, #contact-content { padding: 18px 8px; }
+      #skills-list { gap: 12px 8px; }
+      .project-card { padding: 16px 8px 12px 12px; }
+      #home { border-radius: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">MAHESHWARI</div>
+    <nav>
+      <a href="#home" id="nav-home">Home</a>
+      <a href="#about" id="nav-about">About</a>
+      <a href="#skills" id="nav-skills">Skills</a>
+      <a href="#portfolio" id="nav-portfolio" class="active">Portfolio</a>
+      <a href="#contact" id="nav-contact">Contact</a>
+    </nav>
+  </header>
+  <main>
+    <!-- Home Section -->
+    <section id="home" class="">
+      <div>
+        <div class="hero-title">Maheshwari Thanniru</div>
+        <div class="hero-role">Web Developer & Designer</div>
+        <div class="hero-desc">I craft modern, responsive, and visually appealing web experiences using HTML, CSS, and JavaScript. My passion for design and code helps me deliver seamless interfaces and impactful user journeys.</div>
+        <div class="hero-btns">
+          <a href="#portfolio" class="primary-btn">See My Work</a>
+          <a href="#contact" class="outline-btn">Contact Me</a>
+        </div>
+      </div>
+    </section>
+    <!-- About Section -->
+    <section id="about" class="">
+      <div class="section-title">About Me</div>
+      <div id="about-content">
+        <p>I’m <strong>Maheshwari</strong>, a dedicated and curious 3rd-year Computer Science Engineering-Data Science student with a growing passion for frontend development.</p>
+      <p>I have a solid foundation in HTML, CSS, and JavaScript, and I enjoy bringing designs to life in the browser. Currently, I am exploring frameworks like React and Tailwind CSS to build modern, responsive web applications.</p>
+      <p>As a fresher, I am eager to contribute to real-world projects, learn from experienced professionals, and continuously grow in the field of web development.</p>
+      </div>
+    </section>
+    <!-- Skills Section -->
+    <section id="skills" class="">
+      <div class="section-title">Skills</div>
+      <div id="skills-list">
+        <div class="skill-item">HTML5</div>
+        <div class="skill-item">CSS3 / SCSS</div>
+        <div class="skill-item">JavaScript (ES6+)</div>
+        <div class="skill-item">Responsive Design</div>
+        <div class="skill-item">Git & GitHub</div>
+        <div class="skill-item">UI/UX Design</div>
+        <div class="skill-item">React.js (Basics)</div>
+        <div class="skill-item">Figma</div>
+      </div>
+    </section>
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="active">
+      <div class="section-title">Projects</div>
+      <div id="project-list">
+        <div class="project-card" onclick="showModal(0)">
+          <div class="project-title">Personal Portfolio</div>
+          <div class="project-desc">A responsive and animated portfolio to showcase my web development skills, built with HTML, CSS, and JavaScript.</div>
+        </div>
+        <div class="project-card" onclick="showModal(1)">
+          <div class="project-title">To-Do App</div>
+          <div class="project-desc">A simple and elegant to-do list app made using vanilla JavaScript and localStorage to help users stay organized.</div>
+        </div>
+        <div class="project-card" onclick="showModal(2)">
+          <div class="project-title">Landing Page Clone</div>
+          <div class="project-desc">Pixel-perfect recreation of a modern landing page using advanced CSS layouts and animations.</div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="">
+      <div class="section-title">Contact</div>
+      <div id="contact-content" style="max-width:700px;background:#232323;padding:36px 32px;border-radius:18px;box-shadow:0 2px 18px #0003;">
+        <p>Let’s connect and collaborate on something great!</p>
+      <a href="mailto:maheshwari@example.com">maheshwari@example.com</a><br />
+      <a href="https://github.com/maheshwaridev" target="_blank" rel="noopener">github.com/maheshwaridev</a><br />
+      <a href="https://linkedin.com/in/maheshwaridev" target="_blank" rel="noopener">linkedin.com/in/maheshwaridev</a>
+      </div>
+    </section>
+    <!-- Modal -->
+    <div id="modal" class="modal-bg" onclick="hideModal()">
+      <div class="modal-content" onclick="event.stopPropagation();">
+        <span class="close-btn" onclick="hideModal()">&times;</span>
+        <div id="modal-body"></div>
+      </div>
+    </div>
+    <script>
+      // SPA Navigation
+      const navLinks = document.querySelectorAll('nav a');
+      const sections = document.querySelectorAll('main section');
+      function showSection(hash) {
+        let found = false;
+        sections.forEach(section => {
+          if ('#' + section.id === hash) {
+            section.classList.add('active');
+            found = true;
+          } else {
+            section.classList.remove('active');
+          }
+        });
+        navLinks.forEach(link => {
+          if (link.getAttribute('href') === hash) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+        // Default to #home if not found
+        if (!found) {
+          document.getElementById('home').classList.add('active');
+          document.getElementById('nav-home').classList.add('active');
+        }
+      }
+      // Initial load
+      window.addEventListener('DOMContentLoaded', () => {
+        showSection(location.hash || '#home');
+      });
+      // On hash change
+      window.addEventListener('hashchange', () => {
+        showSection(location.hash || '#home');
+      });
+      // Project Modal
+      const projects = [
+        {
+          title: "Personal Portfolio",
+          desc: "A responsive and animated portfolio to showcase my web development skills, built with HTML, CSS, and JavaScript.",
+          demo: "#",
+          code: "#"
+        },
+        {
+          title: "To-Do App",
+          desc: "A simple and elegant to-do list app made using vanilla JavaScript and localStorage to help users stay organized.",
+          demo: "#",
+          code: "#"
+        },
+        {
+          title: "Landing Page Clone",
+          desc: "Pixel-perfect recreation of a modern landing page using advanced CSS layouts and animations.",
+          demo: "#",
+          code: "#"
+        }
+      ];
+      function showModal(idx) {
+        const data = projects[idx];
+        document.getElementById('modal-body').innerHTML = `
+          <h2 style="color:var(--primary);margin-top:0">${data.title}</h2>
+          <p>${data.desc}</p>
+          <div class="modal-links">
+            <a href="${data.demo}" target="_blank" class="primary-btn">Demo</a>
+            <a href="${data.code}" target="_blank" class="outline-btn">Code</a>
+          </div>
+        `;
+        document.getElementById('modal').style.display = 'flex';
+      }
+      function hideModal() {
+        document.getElementById('modal').style.display = 'none';
+      }
+      // Expose modal functions to global scope
+      window.showModal = showModal;
+      window.hideModal = hideModal;
+    </script>
+  </main>
+</body>
+</html>
