@@ -101,4 +101,6 @@ The Personal Portfolio Webpage is a well-crafted project that balances aesthetic
 
 <img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/9b4a319f-0773-4d3a-be56-9481778d100f" />
 
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/331dbc7b-7e99-4fc5-b986-80c1c168dcc3" />
+
 
