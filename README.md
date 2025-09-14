@@ -97,6 +97,8 @@ Improve visibility in tech communities.
 
 The Personal Portfolio Webpage is a well-crafted project that balances aesthetics, functionality, and performance. It reflects Maheshwari's current capabilities in web development and serves as a living showcase of her growth, creativity, and attention to detail. With continued learning and project expansion, this portfolio can easily scale into a more dynamic and professional platform by integrating new technologies like React, animations libraries, or backend APIs.
 
-#OUPUT
+#OUTPUT
 
 <img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/9b4a319f-0773-4d3a-be56-9481778d100f" />
+
+<img width="1920" height="1080" alt="Image" src="https://github.com/user-attachments/assets/0a04212c-6116-4566-b788-7cbd428c00c9" />
