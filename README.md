@@ -4,7 +4,7 @@
 
 *NAME*: THANNIRU MAHESHWARI
 
-*INTERN ID*:
+*INTERN ID*: CT04DY938
 
 *DOMAIN*: FRONTEND WEB DEVELOPMENT
 
@@ -98,5 +98,3 @@ Improve visibility in tech communities.
 The Personal Portfolio Webpage is a well-crafted project that balances aesthetics, functionality, and performance. It reflects Maheshwari's current capabilities in web development and serves as a living showcase of her growth, creativity, and attention to detail. With continued learning and project expansion, this portfolio can easily scale into a more dynamic and professional platform by integrating new technologies like React, animations libraries, or backend APIs.
 
 
-Voice
-ChatGPT can make mistakes. Check import
